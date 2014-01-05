@@ -52,6 +52,7 @@ class JpaConfig implements TransactionManagementConfigurer {
         entityManagerFactoryBean.setDataSource(configureDataSource());
         entityManagerFactoryBean.setPackagesToScan("${package}");
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+		entityManagerFactoryBean.setPersistenceProvider(new org.hibernate.jpa.HibernatePersistenceProvider());
 
         Properties jpaProperties = new Properties();
         jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, dialect);
